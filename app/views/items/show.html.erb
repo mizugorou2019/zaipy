@@ -1,0 +1,52 @@
+<%= render "shared/header" %>
+
+<%# 物資の概要 %>
+
+<div class="item-show">
+  <div class="item-box">
+
+    <div class='item-img-content'>
+      <%= image_tag @item.image ,class:"item-box-img" %>
+    </div>
+
+      <% if user_signed_in? && current_user.id == 1 %>
+          <%= link_to '在庫編集', edit_item_path, method: :get, class: "item-navy-btn" %>
+          <%= link_to '情報削除', item_path, method: :delete, class:'item-destroy' %>
+          <% else  %>
+          <%= link_to '編集', edit_item_path, method: :get, class: "item-navy-btn" %>
+     <% end %>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item"><b>物資名</b></th>
+          <td class="detail-value"><%= @item.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><b>詳細情報</b></th>
+          <td class="detail-value"><%= @item.description %></td>
+        </tr>
+        <tr>
+         <% if @item.category_id= 2||3 %>
+          <th class="detail-item"><b>在庫数(箱)</b></th>
+          <td class="detail-value"><%= @item.quantity %></td>
+          <% else  %>
+          <th class="detail-item"><b>在庫数(束)</b></th>
+          <td class="detail-value"><%= @item.quantity %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <th class="detail-item"><b>カテゴリー</b></th>
+          <td class="detail-value"><%= @item.category.name %></td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+  </div>
+  <%# /物資の概要 %>
+
+</div>
+
+<%= render "shared/footer" %>

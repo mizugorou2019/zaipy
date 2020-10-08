@@ -1,0 +1,18 @@
+.footer {
+  width: 100vw;
+  height: calc(100%-65vh);
+  padding: 5vh 0;
+  color: #FFF;
+  background-color: #272727;
+  text-align: center;
+}
+
+.footer-contents {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5vh;
+}
+
+.footer>p {
+  font-size: 16px;
+}

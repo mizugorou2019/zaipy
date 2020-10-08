@@ -1,0 +1,40 @@
+a {
+  text-decoration: none;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f8f8;
+  flex-wrap: wrap;
+  background-color: #FFF;
+  border: 0 30vw;
+  margin: 0 5vw; 
+}
+
+.item-img-content {
+  position: relative;
+}
+
+.item-img {
+  width: 20vh;
+  height: 20vh;
+  padding: 1px;
+}
+
+.item-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5vw;
+  background-color: #FFF;
+}
+
+.item-img-content,
+.item-name,
+.item-quantity,
+.item-category{
+  text-align:center;
+}

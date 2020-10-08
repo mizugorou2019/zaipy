@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+
+.second-footer {
+  width: 100%;
+  min-width: 800px;
+  height: calc(100%-200px);
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+.second-footer-text-wrap {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.second-footer-text {
+  color: #333;
+  font-size: 12px;
+  margin: 0 10px;
+}
+
+.second-footer-logo {
+  font-size: 70px;
+  margin: 0 auto;
+  font-family: 'Sacramento', cursive;
+}

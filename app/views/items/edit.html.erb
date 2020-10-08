@@ -1,0 +1,87 @@
+<%# cssは在庫登録時のものを併用しています。
+app/assets/stylesheets/items/new.css %>
+
+<div class="items-info-contents">
+  <header class='main_title'>
+    <%= link_to "Zaipy", "/" %>
+  </header>
+
+  <div class="items-info-main">
+    <h1 class="items-info-title">変更内容を入力してください。</h1>
+
+    <%= form_with model: @item, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# 物資画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+      <% if current_user.id == 2 %>
+
+        外見画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+
+      <% else  %>
+
+        外見画像
+        <span class="indispensable">必須</span>
+      </div>
+    <div class='item-img-content'>
+      <%= image_tag @item.image ,class:"item-box-img" %>
+    </div>
+      
+      <% end  %>
+    </div>
+    <%# /物資登録画像 %>
+
+    <%# 物資名と詳細情報 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        物資名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"資材名（必須 40文字まで)", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          詳細情報
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"資材の説明（必須 1,000文字まで）（色、重さ、注意点など）例）通年必須の紙袋です。在庫切れがあってはなりません。" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /物資名と物資説明 %>
+
+    <%# 物資の詳細 %>
+    <div class="items-detail">
+      <div class="weight-bold-text">カテゴリー
+      <span class="indispensable">必須</span>
+      </div>
+      <div class="form">
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+    </div>
+    <%# /物資の詳細 %>
+
+
+    <%# 下部ボタン %>
+    <div class="item-register-btn-contents">
+      <%= f.submit "変更する", class:"item-register-btn" %>
+      <%=link_to 'もどる', item_path, method: :get, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="item-registration-footer">
+    <div class='second-footer-logo'>
+    Zaipy
+    </div>
+    <p>© mizugorou2019</p>
+  </footer>
+</div>

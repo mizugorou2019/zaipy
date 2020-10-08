@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+
+a {
+  color: black;
+}
+
+.top-page-header {
+  width: 100vw;
+  padding: 3vh 25vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.main_title{
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 95px;
+  font-family: 'Sacramento', cursive;
+}
+
+.nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0;
+}
+
+.lists-left {
+  display: flex;
+  justify-content: space-between;
+  min-width: 200px;
+  font-weight: bold;
+}
+
+.category-list {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.lists-right {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-weight: bold;
+}
+
+.user-name,
+.logout {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+.login,
+.sign-up {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}

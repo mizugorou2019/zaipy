@@ -1,0 +1,58 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+<br>
+<%# 在庫リスト %>
+     <% if user_signed_in? %>
+    <table border="1.5" style="border-collapse: separate", class='item-contents'>
+       <tbody>
+
+
+      <tr class='item-list'>
+              <th><b>物資画像</b></th>
+              <th><b>物資名</b></th>
+              <th><b>詳細情報</b></th>
+              <th><b>個数(箱数)</b></th>
+              <th><b>カテゴリー</b></th>
+      </tr>
+      <tr class='item-list'>
+          <% @items.each_with_index do |item| %>
+            <td class='item-img-content'>
+          <%= link_to item_path(item.id) do  %>
+          <%= image_tag item.image, class: "item-img" %>
+          <% end  %>
+
+            </td>
+
+           <td class='item-name'>
+            <%= item.name %>
+           </td>
+                <td class='item-description'>
+            <%= item.description %>
+           </td>
+
+
+           <td class='item-quantity'>
+             <%= item.quantity %>
+           </td>
+
+
+           <td class='item-category'>
+              <%= item.category.name %>
+           </td>
+      </tr>
+       <% end %>
+
+      </tbody>
+      </table>
+
+      <% else %>
+
+      <div><b>在庫内容はログインすると表示されます。</b></div>
+      <% end %>
+
+    </div>
+</div>
+
+<br>
+<%= render "shared/footer" %>
