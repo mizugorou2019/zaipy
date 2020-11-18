@@ -8,6 +8,10 @@
   min-width: 500px;
 }
 
+th {
+  white-space: nowrap;
+}
+
 .items-info-main {
   background-color: #FFF;
   width: 70vw;
