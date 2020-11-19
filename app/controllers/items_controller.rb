@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def index
-    @items = Item.all.order(id: 'ASC')
+    @items = Item.all.order(category_id: 'ASC')
   end
 
   def new

@@ -33,7 +33,13 @@
            </td>
 
            <td class='item-quantity'>
-             <%= item.quantity %>
+             <% if item.category_id == 5 %>
+             <%= item.quantity %>枚
+             <% elsif  item.category_id == 4 %>
+             <%= item.quantity %>束
+             <% elsif  item.category_id == 2 || 3  %>
+             <%= item.quantity %>箱
+             <% end  %>
            </td>
 
            <td class='item-category'>
