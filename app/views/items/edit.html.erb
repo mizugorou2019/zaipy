@@ -6,21 +6,20 @@ app/assets/stylesheets/items/new.css %>
     <%= link_to "Zaipy", "/" %>
   </header>
 
-  <div class="items-info-main">
+ <div class="items-info-main">
     <h1 class="items-info-title">変更内容を入力してください。</h1>
 
-    <%= form_with model: @item, local: true do |f| %>
+  <%= form_with model: @item, local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
 
-      <% if current_user.id == 1||2 %>
+   <% if current_user.id == 2 %>
     <%# 物資画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
         外見画像
         <span class="indispensable">必須</span>
-     </div>
+      </div>
     </div>
-
     <div class="click-upload">
         <p>
           クリックしてファイルをアップロード
@@ -41,7 +40,7 @@ app/assets/stylesheets/items/new.css %>
           詳細情報
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"資材の説明（必須 1,000文字まで）（色、重さ、注意点など）例）通年必須の紙袋です。在庫切れがあってはなりません。" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"資材の説明（必須 500文字まで）（色、重さ、注意点など）例）通年必須の紙袋です。在庫切れがあってはなりません。" ,rows:"7" ,maxlength:"500" %>
       </div>
     </div>
       <div class="items-quantity">
@@ -64,7 +63,7 @@ app/assets/stylesheets/items/new.css %>
     </div>
     <%# /物資の詳細 %>
 
-        <% else  %>
+   <% else  %>
 
     <%# 物資画像 %>
     <div class="img-upload">
@@ -80,18 +79,18 @@ app/assets/stylesheets/items/new.css %>
         <%# 物資名と詳細情報 %>
     <div class="new-items">
       <div class="weight-bold-text">
-        物資名
+        物資名：
       </div>
             <%= @item.name %>
-      <div class="items-explain">
+      <div class="new-items">
         <div class="weight-bold-text">
-          詳細情報
+          詳細情報：
         </div>
             <%= @item.description %>
       </div>
     </div>
 
-      <div class="items-quantity">
+      <div class="new-items">
         <div class="weight-bold-text">
           物資の個数
           <span class="indispensable">必須</span>
@@ -101,17 +100,15 @@ app/assets/stylesheets/items/new.css %>
     <%# /物資名と物資説明 %>
 
     <%# 物資の詳細 %>
-    <div class="items-detail">
-      <div class="weight-bold-text">カテゴリー
-      </div>
-      <div class="form">
-        <%= @item.category.name %>
-      </div>
+      <div class="new-items">
+        <div class="weight-bold-text">
+         カテゴリー：<%= @item.category.name %>
+        </div>
     </div>
     <%# /物資の詳細 %>
 
      </div>
-      <% end  %>
+    <% end  %>
 
     <%# 下部ボタン %>
     <div class="item-register-btn-contents">

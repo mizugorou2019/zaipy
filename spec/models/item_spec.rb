@@ -14,9 +14,21 @@ describe Item, type: :model do
         @item.name = 'aaaaaaaaaabbbbbbbbbb'
         expect(@item).to be_valid
       end
-      it 'descriptionが100文字以下であれば登録できる' do
+      it 'descriptionが500文字以下であれば登録できる' do
         @item.description =
-          'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、'
+        'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミー'
+        expect(@item).to be_valid
+      end
+      it 'quantityが入力されていれば登録できる' do
+        @item.quantity = 999
+        expect(@item).to be_valid
+      end
+      it 'quantityが0以上999以下であれば登録できる' do
+        @item.quantity = 0
+        expect(@item).to be_valid
+      end
+      it 'categoryが選択されていれば登録できる' do
+        @item.category_id = 2
         expect(@item).to be_valid
       end
     end
@@ -32,23 +44,31 @@ describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
-      it 'nameが21文字以上だと登録できない' do
+      it 'nameが21文字以上では登録できない' do
         @item.name = 'aaaaaaaaaabbbbbbbbbbc'
         @item.valid?
         expect(@item.errors.full_messages).to include('Name is too long (maximum is 20 characters)')
       end
-      it 'descriptionが空であれば登録できない' do
+      it 'descriptionが空だと登録できない' do
         @item.description = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
-      it 'descriptionが101文字以上であれば登録できない' do
+      it 'descriptionが501文字以上では登録できない' do
         @item.description =
-          'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
-        この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
-        この文章はダミーです。文字の大きさ、量'
+        'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーで'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Description is too long (maximum is 100 characters)')
+        expect(@item.errors.full_messages).to include('Description is too long (maximum is 500 characters)')
+      end
+      it 'quantityが空では登録できない' do
+        @item.quantity = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Quantity can't be blank")
+      end
+      it 'quantityが-1以下では登録できない' do
+        @item.quantity = '-1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Quantity is out of range")
       end
       it 'categoryが空では登録できない' do
         @item.category_id = 1

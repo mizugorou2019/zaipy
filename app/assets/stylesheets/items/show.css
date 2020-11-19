@@ -9,7 +9,7 @@
 .item-box {
   background-color: #FFF;
   width: 70vw;
-  min-width: 1200px;
+  min-width: 100vw;
   padding: 10vh 15vw;
   display: flex;
   flex-direction: column;
@@ -23,9 +23,11 @@
 }
 
 .item-box-img {
+  position: relative;
+  padding-right: 20%;
   height: 45vh;
   width: 55vw;
-  min-height: 200px;
+  min-height: 100vh;
   object-fit: contain;
 }
 
