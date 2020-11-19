@@ -66,7 +66,7 @@ describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Quantity can't be blank")
       end
       it 'quantityが-1以下では登録できない' do
-        @item.quantity = '-1'
+        @item.quantity = -1
         @item.valid?
         expect(@item.errors.full_messages).to include("Quantity is out of range")
       end

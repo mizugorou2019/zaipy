@@ -26,10 +26,14 @@ table th{
   text-align: center;
   color:white;
   background: linear-gradient(navy,black);
-  border: 1px  1px solid black;
+  border: 1px  1px solid navy;
   box-shadow: 15px 15px rgba(10, 7, 7, 0.3) inset;
   width: 15%;
   padding: 5px 0;
+}
+
+table td{
+  border: 0.5px solid navy;
 }
 
 .item-img-content {
