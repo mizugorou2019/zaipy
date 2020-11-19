@@ -7,10 +7,11 @@ class Item < ApplicationRecord
 
   validates :image, :category_id,  presence: true
   validates :name, presence: true, length: { maximum: 20 }
-  validates :description, presence: true, length: { maximum: 1000 }
-  validates :quantity, presence: true
+  validates :description, presence: true, length: { maximum: 500 }
+  validates :quantity, presence: true, length: { maximum: 3 }
 
   with_options presence: true do
+    validates :quantity, inclusion: { in: 0..999, message: 'is out of range' }
     validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
   end
 end

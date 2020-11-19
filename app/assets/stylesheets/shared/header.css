@@ -24,12 +24,12 @@ a {
 }
 
 .nav {
-  font-size: 18px;
+  font-size: 18.5px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 100%;
-  padding: 1vh 0;
+  width: 60vw;
+  padding: 0vh;
 }
 
 .lists-left {
