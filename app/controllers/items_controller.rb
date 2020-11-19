@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if current_user.id == 1
+    if current_user.id == 1 || 2
       @item.destroy
       redirect_to root_path
     else
@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:image, :name, :description, :category_id)
+    params.require(:item).permit(:image, :name, :description, :quantity, :category_id)
   end
 
   def set_item

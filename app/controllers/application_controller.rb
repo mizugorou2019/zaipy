@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password])
   end
 
-
   # private
   # def basic_auth
   #   authenticate_or_request_with_http_basic do |username, password|

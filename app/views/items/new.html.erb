@@ -20,10 +20,11 @@
         <p>
           クリックして写真をアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :image, id:"item-img" %>
       </div>
     </div>
     <%# /物資登録画像 %>
+
     <%# 物資名と物資説明 %>
     <div class="new-items">
         <div class="weight-bold-text">
@@ -37,6 +38,13 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"資材の説明（必須 100文字まで）（色、重さ、注意点など）例）通年必須の紙袋です。在庫切れがあってはなりません。" ,rows:"7" ,maxlength:"100" %>
+      </div>
+      <div class="items-quantity">
+        <div class="weight-bold-text">
+          物資の個数
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :quantity, class:"items-quantity", id:"item-quantity", placeholder: "最大数：999", rows:"1" ,maxlength:"3" %>
       </div>
     </div>
     <%# /物資名と物資説明 %>
