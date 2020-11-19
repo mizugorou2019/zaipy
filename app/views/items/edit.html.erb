@@ -12,33 +12,22 @@ app/assets/stylesheets/items/new.css %>
     <%= form_with model: @item, local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
 
+      <% if current_user.id == 1||2 %>
     <%# 物資画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
-      <% if current_user.id == 2 %>
-
         外見画像
         <span class="indispensable">必須</span>
-      </div>
-      <div class="click-upload">
+     </div>
+    </div>
+
+    <div class="click-upload">
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
-
-      <% else  %>
-
-        外見画像
-        <span class="indispensable">必須</span>
-      </div>
-    <div class='item-img-content'>
-      <%= image_tag @item.image ,class:"item-box-img" %>
+        <%= f.file_field :image, id:"item-img" %>
     </div>
-      
-      <% end  %>
-    </div>
-    <%# /物資登録画像 %>
+    <%# /物資画像 %>
 
     <%# 物資名と詳細情報 %>
     <div class="new-items">
@@ -55,6 +44,13 @@ app/assets/stylesheets/items/new.css %>
         <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"資材の説明（必須 1,000文字まで）（色、重さ、注意点など）例）通年必須の紙袋です。在庫切れがあってはなりません。" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
+      <div class="items-quantity">
+        <div class="weight-bold-text">
+          物資の個数
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :quantity, class:"items-quantity", id:"item-quantity", placeholder: "最大数：999", rows:"1" ,maxlength:"3" %>
+      </div>
     <%# /物資名と物資説明 %>
 
     <%# 物資の詳細 %>
@@ -68,14 +64,63 @@ app/assets/stylesheets/items/new.css %>
     </div>
     <%# /物資の詳細 %>
 
+        <% else  %>
+
+    <%# 物資画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        外見画像
+     </div>
+
+    <div class="click-upload">
+        <%= image_tag @item.image, class: "item-box-img" %>
+    </div>
+    <%# /物資画像 %>
+
+        <%# 物資名と詳細情報 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        物資名
+      </div>
+            <%= @item.name %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          詳細情報
+        </div>
+            <%= @item.description %>
+      </div>
+    </div>
+
+      <div class="items-quantity">
+        <div class="weight-bold-text">
+          物資の個数
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :quantity, class:"items-quantity", id:"item-quantity", placeholder: "最大数：999", rows:"1" ,maxlength:"3" %>
+      </div>
+    <%# /物資名と物資説明 %>
+
+    <%# 物資の詳細 %>
+    <div class="items-detail">
+      <div class="weight-bold-text">カテゴリー
+      </div>
+      <div class="form">
+        <%= @item.category.name %>
+      </div>
+    </div>
+    <%# /物資の詳細 %>
+
+     </div>
+      <% end  %>
 
     <%# 下部ボタン %>
     <div class="item-register-btn-contents">
       <%= f.submit "変更する", class:"item-register-btn" %>
-      <%=link_to 'もどる', item_path, method: :get, class:"back-btn" %>
+      <%= link_to 'もどる', item_path, method: :get, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
+
   <% end %>
 
   <footer class="item-registration-footer">

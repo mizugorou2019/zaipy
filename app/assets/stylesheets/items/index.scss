@@ -10,25 +10,24 @@ a {
   flex-wrap: wrap;
   background-color: #FFF;
   border: 0 30vw;
-  margin: 0 5vw; 
+  margin: 0 5vw;
 }
 
 .item-img-content {
-  position: relative;
+  position: absolute;
 }
 
 .item-img {
   width: 20vh;
-  height: 20vh;
-  padding: 1px;
+  height: 25vh;
+  padding: 0px;
 }
 
 .item-lists {
-  width: 100vw;
-  display: flex;
+  width: 10vw;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 5vw;
+  margin: 10px 50px;
   background-color: #FFF;
 }
 
@@ -36,5 +35,5 @@ a {
 .item-name,
 .item-quantity,
 .item-category{
-  text-align:center;
+  text-align: center;
 }
