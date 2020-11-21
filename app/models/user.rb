@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 15 }
   validates :tel_num, presence: true, length: { maximum: 11 }
-  # validates_presence_of :name
   validates :password, confirmation: true, length: { minimum: 8 }
 
   def email_required?
