@@ -15,7 +15,7 @@
       <span class="indispensable">必須</span>
     </div>
     <div class='input-name-wrap'>
-      <%= f.text_area :name, class:"input-default", id:"first-name", placeholder:"例) 山田太郎", maxlength:"40" %>
+      <%= f.text_area :name, class:"input-default", id:"name", placeholder:"例) 山田太郎", maxlength:"40" %>
     </div>
   </div>
   <div class="form-group">
@@ -24,7 +24,7 @@
       <span class="indispensable">必須</span>
     </div>
     <div class='input-name-wrap'>
-      <%= f.text_area :name_kana, class:"input-default", id:"first-name-kana", placeholder:"例) ヤマダタロウ", maxlength:"40" %>
+      <%= f.text_area :name_kana, class:"input-default", id:"name-kana", placeholder:"例) ヤマダタロウ", maxlength:"40" %>
     </div>
   </div>
   <div class="form-group">
@@ -47,16 +47,15 @@
       <label class="form-text">パスワード(確認)</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.password_field :password, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
+    <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
   </div>
     <p class='info-text'>※ 本人情報は正しく入力してください。</p>
     <p class='info-text'>登録後の修正には時間がかかります。</p>
   <div class="form-group">
   </div>
   <div class='register-btn'>
-    <%= f.submit "スタッフ情報登録" ,class:"register-blue-btn" %>
+    <%= f.submit "スタッフ情報登録" , class:"register-blue-btn" %>
   </div>
-  <%# <p class='register-info'>本人情報の登録について</p> %>
 </div>
 <% end %>
 
