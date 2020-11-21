@@ -8,11 +8,8 @@ class User < ApplicationRecord
   has_many :pickups
 
   validates :name, presence: true, length: { maximum: 15 }
-  validates :password, presence: true, length: { minimum: 8 }
   validates :tel_num, presence: true, length: { maximum: 11 }
-
-  # validates_uniqueness_of :name
-  # validates_presence_of :name
+  validates :password, confirmation: true, length: { minimum: 8 }
 
   def email_required?
     false
