@@ -45,7 +45,7 @@ blockquote,
 th,
 td {
   margin: 1px;
-  padding: 1px;
+  /* padding: 1px; */
 }
 table {
   border-collapse:collapse;

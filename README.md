@@ -79,12 +79,10 @@ Ruby on Rails 6.0.0
 
 
 ## Orders テーブル
-| Column          | Type    | Options                        |
-| --------------- | ------- | ------------------------------ |
-| user_id         | integer | null: false, foreign_key: true |
-| item_id         | integer | null: false, foreign_key: true |
-| quantity        | integer | null: false                    |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :item
