@@ -18,7 +18,7 @@
        <% if user_signed_in? %>
       <li><%= link_to '物資登録', new_item_path, class: "category-list"%></li>
       <%# <li><%= link_to 'ピックアップ', "#", class: "category-list"%><%#/li> %>
-      <li><%= link_to '発注画面', orders_index_path, method: :get, class:"category-list" %></li>
+      <li><%= link_to '発注画面', "#", method: :get, class:"category-list" %></li>
        <% else %>
          <div><b>物資登録・発注はログイン時のみ可能です。</b></div>
        <% end %>
