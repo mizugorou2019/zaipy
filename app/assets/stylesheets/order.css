@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500&display=swap');
 .wrapper {
   display: flex;
 }
@@ -6,12 +7,13 @@
   background-color: #253141;
   width: 300px;
   height: 100vh;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .side-bar-header {
   height: 100px;
   padding: 0 20px;
-  background-color: #253141;
+  background-color: black;
   display: flex;
   justify-content: space-between;
   align-items:center;
@@ -33,10 +35,11 @@
   padding: 14px;
   border: 1px solid lightblue;
   text-decoration: none;
+  border-radius:40px;
 }
 
 .rooms {
-  background-color: #2F3E51;
+  background-color: black;
   height: calc(100vh - 100px);
   padding: 0 20px;
   overflow: scroll;
@@ -48,6 +51,7 @@
 .room-name a{
   text-decoration: none;
   color: white;
+  font-size: 20px;
 }
 
 .chat {
@@ -59,11 +63,12 @@
   height: 100px;
   padding:0 40px;
   display:flex;
+  background-color: black;
   justify-content: space-between;
 }
 
 .header-title{
-  color: #333;
+  color: white;
   font-size: 24px;
   margin-top: 36px;
 }
@@ -74,9 +79,10 @@
 
 .header-button a{
   padding: 20px;
-  border: 1px solid darkred;
-  color: darkred;
+  border: 1px solid orange;
+  color: orange;
   text-decoration: none;
+  border-radius:30px;
 }
 
 .header-name{
@@ -86,14 +92,16 @@
 }
 
 .messages {
-  background-color: #FAFAFA;
+  background-color: #c2ddb7;
   height: calc(100vh - 190px);
   padding: 0 20px;
   overflow: scroll;
+  border-radius:15px;
 }
 
 .message{
   padding:10px 0;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .upper-message{
@@ -150,6 +158,7 @@
   height: 50px;
   margin-left: 15px;
   padding: 0 20px;
+  border-radius:30px;
 }
 
 .form-image{
@@ -160,6 +169,7 @@
   width: 60px;
   margin: 5px 10px;
   text-align: center;
+  border-radius:30px;
 }
 
 .hidden{
